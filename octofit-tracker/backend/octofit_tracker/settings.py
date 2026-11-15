@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-sbh=tyb5r7(mf(30)we&n63=zz1nocg=qfvvx+liv7b(bk*%w*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']  # covers localhost:8000 and the Codespaces <name>-8000.app.github.dev host
+
+# Needed for POST requests (e.g. admin login) through the HTTPS Codespaces proxy
+CSRF_TRUSTED_ORIGINS = ['https://*.app.github.dev', 'http://localhost:8000', 'http://127.0.0.1:8000']
 
 
 # Application definition
